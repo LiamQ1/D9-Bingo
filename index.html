@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8" />
+
+    <title>Bingo</title>
+
+    <link
+
+      rel="stylesheet"
+
+      href="https://fonts.googleapis.com/css?family=Nunito&display=swap"
+
+    />
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <style></style>
+
+  </head>
+
+  <body>
+
+    <h1>Bingo</h1>
+
+    <div id="bingo-numbers">
+
+      <!-- number cells will be inserted here -->
+
+      <div>
+
+        <button onclick="newNumber()">New Number</button>
+
+        <p>Draw History</p>
+        <ol id="History"></ol>
+
+      </div>
+
+    </div>
+
+    <script>
+        window.onload = function(){
+            let bingoNumbers = document.getElementById("bingo-numbers")
+
+            for(let i=0; i<75; i++){
+                let cell = document.createElement('div') //creating new empty div
+                cell.classList.add("numbers")            //adding class list to empty div
+
+                let numberCell = document.createElement('h3') // creating empty h3
+                numberCell.innerText = i + 1                  // numbering the cells
+
+                cell.appendChild(numberCell)                  // inserting the h3 into the div
+                bingoNumbers.appendChild(cell)                // adding the div to the bingo board
+            }
+
+        }
+        let newNumber = function() {
+        let number = Math.floor(Math.random() *75)
+        
+        let drawHistory = document.getElementById("History")
+        let numberHistory = document.createElement("li")
+            numberHistory.innerText = number
+            
+            drawHistory.appendChild(numberHistory)
+         
+        
+        
+        }
+
+
+    </script>
+  </body>
+
+</html>
